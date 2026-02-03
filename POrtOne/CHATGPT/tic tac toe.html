@@ -1,0 +1,188 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC TAC TOE</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        body{
+        height: 100vh;
+    background: linear-gradient(to bottom,rgb(67, 103, 232),rgb(228, 10, 228));
+        
+}
+html{
+    font-size: 16px;
+}
+h1{
+   text-align:center ; 
+   margin:2rem;
+   color:rgb(202, 169, 233);
+   font-size:3rem; 
+
+   
+
+}
+.wrapper{
+    position:absolute;
+    top:50%;left:50%;
+    transform: translate(-50%,-50%);
+}
+.container{
+    width:70vmin;height:70vmin;
+    display:flex;flex-wrap:wrap;gap:2vmin;
+}
+.btn-option{
+    background-color: aliceblue;
+    height:22vmin;
+    width:22vmin;
+    border:none;
+    border-radius:.9rem;
+    font-size:40px;
+    color:rebeccapurple;
+    font-weight:900;
+}
+#restart{
+    margin-top:1.5rem;
+    margin-left:7.7rem;
+    display:block;
+    font-size: 1.3rem;
+    padding: 10px;
+    border-radius:.5rem;
+    border:none;
+    background-color: black; color:white;
+    position:absolute;
+}
+#restart:hover{
+    background-color: blue;
+}
+.btn-option:hover{
+    box-shadow: 0 0 10px white;
+}
+.popup{
+background-color:linear-gradient(to bottom,rgb(67, 103, 232),rgb(228, 10, 228));
+    height:100%;
+    width:100%;
+    position: absolute;
+    display: flex;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:1em;
+    font-size: 12vmin;
+    
+}
+#new-game{
+    padding:0.5rem;
+    background-color: black;color:white;padding:10px 20px;font-size:2rem;border-radius:.6rem;
+    border:none;
+}
+#message{
+    color:aliceblue;text-align: center;
+}
+.popup{
+    display: none;
+
+}
+        
+     
+    </style>
+</head>
+<body>
+    <!-- <h1>TIC TAC TOE</h1> -->
+   <div class="wrapper">
+    <div class="container" id="container">
+   <button class="btn-option"></button>
+   <button class="btn-option"></button>
+   <button class="btn-option"></button>
+   <button class="btn-option"></button>
+   <button class="btn-option"></button>
+   <button class="btn-option"></button>
+   <button class="btn-option"></button>
+   <button class="btn-option"></button>
+   <button class="btn-option"></button>
+    </div>
+    
+   </div>
+   <div class="popup" id="popup">
+    <p id="message">Sample Message</p>
+    <button id="new-game">New Game</button>
+   </div>
+
+   <script>
+const btns=document.querySelectorAll(".btn-option");
+let restart=document.getElementById("restart")
+let popup=document.getElementById("popup");
+let newgame=document.getElementById("new-game");
+let msg=document.getElementById("message");
+let container=document.getElementById("container");
+
+let currentplayer="x";
+let gameActive=true;
+
+const winnerpattern=[
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+];
+// function updateplayer(){
+// currentPlayerText.innerText=`Current Player: ${currentplayer}`
+//    }
+btns.forEach(btn=>{
+btn.addEventListener("click",()=>{
+    if(!gameActive || btn.innerText!="")
+    return;
+
+
+    btn.innerText=currentplayer;
+    if(checkWinner()){
+        endGame(`player ${currentplayer} Wins!🤩`)
+    }
+    else if(!checkWinner() && checkDraw()){
+        endGame(`game is draw😎`)
+    }
+    else{
+currentplayer=currentplayer==="x"?"o":"x";
+// updateplayer();
+    }
+});
+});
+function checkWinner(){
+return winnerpattern.some(pattern=>pattern.every(i=>btns[i].innerText===currentplayer)
+);
+}
+function checkDraw(){
+    return[...btns].every(btn=>btn.innerText!=="")
+}
+function endGame(text){
+    gameActive=false;
+    msg.innerText=text;
+    popup.style.display="flex";
+    container.style.display="none";
+}
+// restart.addEventListener("click",restartGame);
+newgame.addEventListener("click",restartGame);
+
+function restartGame(){
+    btns.forEach(btn=>btn.innerText="");
+currentplayer="x"
+    gameActive=true;
+    popup.style.display="none";
+    //  updateplayer();
+    container.style.display="flex"; 
+}
+ </script>
+  </body>
+</html>  
+

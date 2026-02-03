@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+  background:linear-gradient(to left,rgb(121, 11, 223),white);
+ display:flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            margin: 0;
+        }
+        .collage{
+            display: flex;
+            gap:8px;
+            align-items: center;
+            height:400px;
+            
+        }
+        .image{
+            overflow: hidden;
+            border-radius: .9rem;
+            cursor: pointer;
+            transition: flex 0.9s ease;
+            height: 100%;
+        
+        }
+        .image img{
+            height: 100%;
+            width:auto;
+            box-shadow: 0 0 10px white;
+            object-fit: cover;
+            display: flex;
+        }
+         .active{
+            border-radius:15px;
+            box-shadow: 0 0 10px green;
+        }
+        .slice{
+            flex:0 0  50px;
+        }
+        .slice.active{
+            flex:0 0 450px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="collage">
+    <div class="image slice active">
+<img src="./imges/flo flo1.jpg" alt=""> </div>
+  <div class="image slice">
+<img src="./imges/flo flo 3.jpg" alt=""> 
+</div>
+  <div class="image slice">
+<img src="./imges/flo flo 4.jpg" alt="">
+ </div>
+  <div class="image slice">
+<img src="./imges/flo flo 5.jpg" alt="">
+</div>
+  <div class="image slice">  
+<img src="./imges/flo flo 6.jpg" alt="">
+</div> 
+<div class="image slice">
+    <img src="./imges/flo flo7.jpg" alt="">
+</div> 
+<div class="image slice">
+    <img src="./imges/flo flo 17.jpg" alt="">
+</div> 
+<div class="image slice">
+    <img src="./imges/flo flo10.jpg" alt="">
+    </div>
+
+</div>
+<script>
+    const slices=document.querySelectorAll(".slice");
+slices.forEach((slice)=>{
+    slice.addEventListener("mouseenter",()=>{
+slices.forEach((s)=>s.classList.remove("active"));
+        slice.classList.add("active")
+    })
+})    
+</script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+        padding:0;
+        height:100vh;
+        margin:0;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+ background: linear-gradient(to bottom, rgb(221, 38, 221), rgb(209, 44, 72));
+      display: flex; justify-content: center;align-items: center;
+} 
+h1{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 40px;
+    transform: translate(-50%, -50%);
+    transition: all 1s ease-in-out;
+    color: white;
+}
+.move-top{
+    top:20px;
+    transform: translate(-50%, 0%);
+}
+.container{
+    background-color: aliceblue;
+    padding:2rem 5rem;
+    overflow: hidden;
+    box-shadow: 0 0 15px wheat;
+    border-radius: 1.4rem;
+    text-align: center;
+    display:none;
+
+}
+input{
+    padding:10px 2rem;
+    font-size: 1.3rem;
+box-shadow: 0 0 10px blue;;
+   border:none;
+     border-radius:20px 0 0 20px;
+margin-right: .7rem;
+font-weight: 900;
+ font-family: Georgia, 'Times New Roman', Times, serif;
+}
+button{
+    padding:12px 16px;
+    background-color:blueviolet;
+    color:white;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     font-weight: 900;
+    border: none;
+    font-size:1.2rem;
+    box-shadow: 0 0 10px blue;
+    border-radius:0 20px 20px 0;
+
+}
+.container:hover{
+box-shadow: 0 0 20px midnightblue;
+/* transform: scale(1.1,1.1); */
+transition: all 2s ease-in-out;
+}
+input:hover{
+    box-shadow: 0 0 20px mediumvioletred ;
+    transition: all 1s ease-in-out;
+}
+button:hover{
+     box-shadow: 0 0 30px mediumvioletred ;
+     transition: all 1s ease-in-out;
+}
+@media(max-width:800px){
+    body{
+background: linear-gradient(to bottom,white,yellow);
+    }
+    h1{
+    position: absolute;
+    left:50%;
+    top:50%;
+    font-size: 30px;
+    transform:translate (-50%, 50%);
+    transition: all 1s ease-in-out;
+    color:brown
+}
+.move-top{
+    top:15px;
+    transform: translate(-50%, 0%);
+}
+.container{
+    background-color: rgb(127, 184, 233);
+    padding:20px 3rem;
+    overflow: hidden;
+}
+input{
+    padding:10px 1.3rem;
+    font-size: 1.2rem;
+margin-right: .7rem;
+
+}
+button{
+    padding:12px 16px;
+    background-color:blue;
+    font-size:1rem;
+   }
+     .task{
+    background-color: white;
+    font-size:1.9rem;
+   
+       }
+       .deletebtn{
+        font-size:1.5rem;
+       }
+
+   @media (max-width:560px){
+    body{
+        background: linear-gradient(to top, blue,white);
+    }
+     h1{
+    font-size: 30px;
+    color:darkcyan;
+}
+.move-top{
+    top:15px;
+    transform: translate(-50%, 0%);
+}
+.container{
+    background-color:rgb(145, 63, 221);
+    padding:25px 2rem;
+    overflow: hidden;
+}
+input{
+    padding:10px 1.1rem;
+}
+button{
+    padding:12px 16px;
+    background-color:green;
+    font-size:1.1rem;
+    margin-right:-4px
+   }
+   .task{
+    background-color: white;
+    font-size:1.2rem
+       }
+       .deletebtn{
+        background-color: aqua;
+        font-size: 2rem;
+       }
+}
+@media(max-width:400px){
+    body{
+background: linear-gradient(to top,rgb(132, 228, 100),rgb(236, 236, 231));
+    }
+    h1{
+   
+    font-size: 1.9rem;
+    font-weight: 900;;
+    color:rgb(114, 23, 225)
+}
+
+.container{
+    background-color: rgb(196, 27, 214);
+    padding:20px 1.7rem;
+    overflow: hidden;
+}
+input{
+    padding:15px 1.1rem;
+    font-size: 15px;
+}
+button{
+    margin-top:15px;
+    padding:15px 16px;
+    background-color:rgb(240, 26, 183);
+    font-size:1rem;
+   }
+     .task{
+    background-color: white;
+    font-size:1.9rem;
+   
+       }
+       .deletebtn{
+        font-size:1.5rem;
+       }
+
+}
+}
+.task{
+     margin-top: 10px;
+     padding:5px;
+    background-color:"white";
+    color:black;
+    box-shadow: 0 0 10px blue;
+    border-radius:  30px 0 0 30px ;
+    /* font-weight:900; */
+    display: flex;
+    justify-content: space-between;align-items: center;
+} 
+
+  
+
+.task p{
+    margin: 0;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 900;
+    width:100%;
+
+}
+.deletebtn{
+    background:midnightblue;
+    color:white;border:none;border-radius:50%;
+    padding:5px; cursor:pointer;
+}
+.deletebtn:hover{
+    transform: scale(1.1);
+}
+  .complete{
+    text-decoration: line-through;
+    color:gray;
+  }      
+    </style>
+</head>
+<body>
+   
+    <h1 id="title">To-Do-List App</h1>
+   
+    <div class="container" id="container">
+ <input type="text" id="input" placeholder="Enter a Task">
+ <button id="addbtn">Add</button>
+ <div id="tasklist"></div>
+ </div>
+
+   
+
+   
+    <script>
+setTimeout(()=>{
+    document.getElementById("title").classList.add("move-top");
+},2000);
+setTimeout(()=>{
+    document.getElementById("container").style.display="block";
+},3000);
+//   
+  document.getElementById("addbtn").onclick=function(){
+    const input=document.getElementById("input");
+    const inputtext=input.value.trim();
+
+    if(inputtext===""){
+        alert("please enter a task");
+        return;
+    }
+    const taskdiv=document.createElement("div");
+    taskdiv.className="task";
+
+    const para=document.createElement("p");
+    para.textContent=inputtext;
+
+    para.onclick=function(){
+        this.classList.toggle("complete");
+    };
+    const deletes=document.createElement("button");
+    deletes.textContent="🗑️";
+    deletes.className="deletebtn";
+
+deletes.onclick=function(){
+    taskdiv.remove();
+};
+taskdiv.appendChild(para);
+taskdiv.appendChild(deletes);
+ document.getElementById("tasklist").appendChild(taskdiv);
+ input.value="";
+};
+ 
+    </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    font-family: "Playfair Display", serif;
+    font-weight: 800;
+    
+}
+*{
+    padding:0;
+    margin:0;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    height:70px;
+    padding:0px 100px;
+
+}
+.logo{
+    width:40%;
+    font-size: 30px;
+    color:rgb(114, 15, 79);
+
+
+}
+.menubar{
+list-style: none;
+display: flex;
+justify-content: space-around;
+width:40%;
+gap:20px;
+
+}
+li a{
+    text-decoration: none;
+    color:midnightblue;
+    font-size: 1.2rem;
+}
+li a:hover{
+    color:darkcyan;
+    text-decoration: underline;
+    text-underline-offset:12px;
+    text-decoration-color: chocolate;
+    
+}
+/*  */
+.sec1{
+    display:flex;
+    align-items: center;
+    height:90vh;
+gap:90px;
+}
+.onesec{
+    margin-left:100px;
+    gap:60px;
+}
+.onesec img{
+    width:400px;
+    border-radius: 50%;
+}
+.twosec{
+    display:flex;
+    flex-direction: column;
+    line-height: 2rem;
+    /* box-shadow:0 0 10px grey; */
+    
+   
+}
+.twosec .threesec{
+    font-family: cursive;
+
+}
+h1{
+letter-spacing: 1.2px;
+color:darkred;
+font-weight: 900;
+}
+.foursec{
+    margin:20px 0px;
+    font-size: 1.4rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:chocolate;
+  text-decoration: underline;
+}
+p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:rgb(71, 70, 70);
+   margin-bottom:20px
+    
+}
+.btns{
+    display:flex;
+    gap:30px;
+    margin-bottom:20px;
+}
+/* .btns  >:nth-child(1){ */
+.btn{
+    padding:10px  40px;
+    border-radius: 1.5rem;
+    font-size: 1.3rem;
+    font-style:italic;
+    font-weight: 800;
+    border:3px outset brown;
+    color:black;
+    text-decoration:none;
+
+}
+.btns >:nth-child(1):hover{
+    background-color: black;
+color:white;
+box-shadow: 0 0 10px mediumslateblue;
+cursor: pointer;
+ transition:3s ease;
+}
+.btns >:nth-child(2){
+     padding:10px  40px;
+    border-radius: 1.5rem;
+    font-size: 1.3rem;
+    font-style:italic;
+    font-weight: 800;
+       border:3px outset brown;
+       background-color: black;
+       color: white;
+}
+.btns >:nth-child(2):hover{
+     background-color: white;
+color:black;
+box-shadow: 0 0 10px mediumslateblue;
+cursor: pointer;
+ transition:3s ease;
+}
+.icons{
+   width:100px;
+   font-size:2rem;
+   display:flex;
+   gap:30px;
+
+}
+#in:hover{
+    transition: 4s ease;
+    transform:scale(2,2);
+    cursor:pointer
+}
+.navbar-menu{
+    display:none;
+}
+@media(max-width:1024px){
+    .navbar{
+        display:none;
+    }
+    .navbar-menu{
+    display:flex;
+}
+.navbar-menu .menubar{
+    display: flex;
+    flex-direction: column;
+    background-color:orange;
+    position:fixed;
+    right:-400px;
+    top:70px;
+    padding: 10px;
+    gap:10px;
+    /* margin-right: -400px; */
+    border-radius: 5px;
+      transition: right 0.5s ease;
+}
+.navbar-menu .ham{
+    font-size: 35px;
+    position: fixed;
+    right:20px;
+    top:15px;
+     
+}
+.navbar-menu .menubar.show{
+right: 0px;
+
+}
+
+.navbar-menu .ham i{
+    background-color: alicebl;
+    box-shadow: 0 0 10px grey;
+    padding:20px;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+.navbar-menu  li{
+    background-color: white;
+    padding:15px;
+    border-radius:.9rem;
+    font-weight: 900;
+       
+}
+@media(max-screen:767px){
+    .logo{
+        text-wrap:nowrap
+    }
+}
+@media(max-width:1024px){
+    .sec1{
+    display:flex;
+    flex-direction:column;
+}
+
+.twosec{
+    /*  */
+    align-items: center;
+   }
+   .onesec{
+    margin-left:0px;
+ 
+}
+p{
+    text-align: center;
+}
+
+}
+@media(max-width:767px){
+    .sec1{
+    display:flex;
+    flex-direction:column;
+}
+
+.twosec{
+    /*  */
+    align-items: center;
+   }
+   .onesec img{
+width:300px;
+ 
+}
+p{
+    text-align: center;
+}
+
+}
+}
+.abouttwo{
+
+}
+.abouttwotwo{
+
+}
+.about22-1{
+    
+}

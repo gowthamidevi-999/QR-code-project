@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    *{
+        margin:0;
+
+        padding:0;
+        box-sizing: border-box;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    /* body{
+background:linear-gradient(to top, #4203a9,#90bafc);
+min-height:100%;
+    } */
+    .container{
+ background:linear-gradient(135deg, #cd1fc7,#90bafc);
+    width:100%;min-height: 100vh;
+        color:white;
+        padding:10px;
+      
+    }
+    .calculator{
+        width:100%;
+        max-width:600px;
+        margin-left: 10%;
+        margin-top:10%;
+        font-size:3rem
+    }
+    h1{
+        margin-top:-15%;
+    }
+   
+    
+    #title{
+        font-size: 59px;
+        color:#fff765;
+    }
+    .input-box{
+       
+        margin:40px 0px;
+        padding: 4rem 15rem;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        gap:15px;
+        /* text-align: center; */
+        width:80%;
+        background-color: rgba(255, 255, 255,0.3);
+    }
+    #date{
+        
+        padding: 20px; border-radius: .5rem;
+        border:none;
+        font-size: 25px;
+    }
+    button{
+        padding:20px;font-size: 25px;
+        border:none;border-radius:.8rem;
+        background-color: aliceblue;
+    }
+    .input-box:hover{
+        box-shadow:0 0 10px white;
+    }
+    #date:hover{
+        background-color:rgb(229, 249, 229);
+        box-shadow:0 0 10px white;
+    }
+    button:hover{
+background-color: rgb(208, 237, 237);
+box-shadow:0 0 10px white;
+    }
+     .para{
+        width:100%;
+        font-size:34px;
+        font-weight:600;
+        color:maroon; 
+     } 
+.highlight{
+        font-size:2.7rem;
+        color:white;
+        font-weight:900;
+    }
+    b{
+        font-size:10rem;
+       position:absolute;
+       top:30%;
+       left:70%;
+   
+
+        
+    }
+    b:hover{
+       /* transform:scale(2,2); */
+           transform:rotate(-1005deg) scale(1.5);
+       transition :all  2s ease;
+    }
+   
+   </style>
+</head>
+<body>
+   <div class="container" id="container">
+    <div class="calculator">
+        <h1>javascript<br><span id="title">Age Calculator </span> </h1>
+    <div class="input-box">
+        <input type="date" id="date">
+        <button id="btn" onclick="calculateAge()">Calculator</button>
+    </div>
+    <div>
+        <p class="para" id="result"></p>
+    </div>
+    </div>
+    
+   </div>
+   <div>
+   <b>😄</b>
+
+   </div>
+   
+   <script>
+    let date=document.getElementById("date");
+    let btn=document.getElementById("btn")
+    let result=document.getElementById("result")
+    date.max=new Date().toISOString().split("T")[0];
+     
+    function calculateAge(){
+        let birthDate=new Date(date.value);
+
+        let d1=birthDate.getDate();
+        let m1=birthDate.getMonth()+1;
+        let y1=birthDate.getFullYear();
+
+        let today=new Date();
+
+        let d2=today.getDate();
+        let m2=today.getMonth()+1;
+        let y2=today.getFullYear();
+
+        let d3,m3,y3;
+        y3=y2-y1
+
+        if(m2>=m1){
+            m3=m2-m1;
+        }
+        else{
+            y3--;
+            m3=12+m2-m1;
+        }
+        if(d2>=d1){
+            d3=d2-d1;
+        }
+        else{
+             m3--;
+    d3=getDay(y2,m2-1)+d2-d1;
+        }
+
+        if(m3<0){
+    m3=11;
+    y3--;
+}
+    
+    // console.log(y3,m3,d3)
+    result.innerHTML=`you are <span class="highlight">${y3}</span>
+     years <span class="highlight">${m3} </span>
+      months <span class="highlight"> ${d3}</span> days`
+}
+    function getDay(year, month){
+        return new Date(year,month,0).getDate();
+    }
+
+   </script>
+</body>
+</html>

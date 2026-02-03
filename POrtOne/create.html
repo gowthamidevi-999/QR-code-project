@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let create=document.createElement("div")
+        let img=document.createElement("img")
+        // img.src="./images/flo3.jpg"
+        img.src="https://images.pexels.com/photos/1030623/pexels-photo-1030623.jpeg";
+        img.style.width="300px";
+        img.style.border="3px groove green";
+        img.style.height="250px";
+        create.style.textAlign="center";
+        create.style.backgroundColor="transpaent";
+        create.style.position="absolute";
+       create.style.top="30%";
+       create.style.left="20%";
+     create.style.boxShadow="0 0 18px green";
+        
+        create.appendChild(img);
+        document.body.appendChild(create)
+        create.addEventListener("mouseenter",hii);
+        function hii(){
+            create.style.boxShadow="0 0 5px blue";
+             create.style.transform="scale(1.2)";
+        create.style.transition="all 0.5s ease";
+            img.src="https://images.pexels.com/photos/35439648/pexels-photo-35439648.jpeg";
+        }
+        create.addEventListener("mouseleave",hello);
+        function hello(){
+            create.style.transform="none";
+        create.style.transition="all 0.5s ease";
+            create.style.boxShadow="0 0 10px green";
+       img.src="https://images.pexels.com/photos/158063/bellingrath-gardens-alabama-landscape-scenic-158063.jpeg";   
+        }
+        // create.addEventListener("mouseenter",ok);
+        // function ok(){
+        // create.style.transform="scale(1.2)";
+        // create.style.transition="all 0.5s ease";
+        // // img.src="https://images.pexels.com/photos/1420440/pexels-photo-1420440.jpeg";    
+        // }
+        // create.addEventListener("mouseleave",bye)
+        // function bye(){
+           
+        // }
+
+
+    </script>
+</body>
+</html>

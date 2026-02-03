@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App☁️</title>
+    <style>
+        *{
+        padding:0;
+        margin:0;
+        box-sizing: border-box;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+        }
+        body{
+            background: linear-gradient(to bottom,aqua,rgb(69, 69, 221));
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .container{
+            box-shadow: 0 0 10px white ;
+            padding:90px 60px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .container:hover{
+            transform: scale(1.1,1.1);
+            transition:all 1s ease-in-out
+        }
+        h1{
+            margin-top :-70px;
+            line-height: 4rem;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:rgb(144, 20, 20);
+            text-shadow: 2px 2px 5px white;
+        }
+         h1:hover{
+            text-decoration:underline;
+         
+
+            
+         }
+        .search-box{
+            display: flex;
+            gap:10px;
+            margin-top:15px;
+            
+           
+
+        }
+        input{
+             padding:10px;
+            font-size: 1.2rem;
+            text-align: center;
+            color:blueviolet;
+            border:none;
+            border-radius:2rem 0 0 2rem;
+            box-shadow: 0  0 10px navy;
+          
+        
+} 
+input:hover{
+     box-shadow: 0 0 20px rgb(12, 219, 181);
+}
+button{
+    font-size:1.2rem;padding:10px;
+    border-radius:0px 20px  20px 0px;border:none;
+    background-color: brown;
+    color:white;
+      box-shadow: 0 0 10px navy;
+}
+button:hover{
+     background-color:midnightblue; 
+     box-shadow:0 0 10px white;
+     transform:scale(1.1,1.1);
+     transition:all 1s ease-in-out
+}
+.weather-card{
+    margin-top:2rem;
+  
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+#cityname{
+    color:midnightblue;
+    font-size: 2rem;
+}
+#temp{
+    font-size: 1.7rem;
+    color:brown;
+
+}
+span{
+    
+    font-size: 20px;
+    color:white;
+    font-size:1.2rem;
+    font-weight:900;
+} 
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 >Wheather App</h1>
+        <div class="search-box">
+            <input type="text" id="input" placeholder="enter county name">
+            <button onclick="getwether()" >Search</button>
+        </div>
+        <div class="weather-card">
+            <h2 id="cityname">City</h2>
+            <h2 id="temp"> ---&#176;C</h2>
+            <h3 id="weathertype">----</h3>
+
+            <div class="dtails">
+                <span id="minTemp">Min:<b>--°C</b></span>
+    <span class="divider">|</span>
+     <span id="maxTemp">Max: <b>--°C</b></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        const input=document.getElementById("input")
+        const cityname=document.getElementById("cityname");
+        const temp=document.getElementById("temp");
+        const weather=document.getElementById("weathertype");
+        const min=document.getElementById("minTemp");
+        const max=document.getElementById("maxTemp")
+        const API_KEY = "97898beb27eb8e1c1378a1d8f63777d7";
+
+        async function getwether(){
+            let city=input.value.trim();
+            if(city === ""){
+                alert("please enter a city name");
+                return;
+            }
+
+let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+         let res=await fetch(url);
+         let data= await res.json();
+        //  
+         let tempC = (data.main.temp - 273.15).toFixed(1);
+    let minC = (data.main.temp_min - 273.15).toFixed(1);
+    let maxC = (data.main.temp_max - 273.15).toFixed(1);
+    
+         cityname.innerHTML = data.name;
+            temp.innerHTML = `${data.main.temp}&#176;C`;
+         weather.innerHTML=data.weather[0].main;
+          min.innerHTML=`Min: <b>${data.main.temp_min}&#176;C</b>`;
+    max.innerHTML=`Max: <b>${data.main.temp_max}&#176;C</b>`; 
+        }
+
+        </script>
+        </body>
+        </html>
+
+

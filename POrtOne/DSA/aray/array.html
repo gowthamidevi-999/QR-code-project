@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Maximum number</h1>
+    <script>
+        let arr=[10,4,20,7,15];
+        let max=[0];
+        for(i=1;i<arr.length;i++){
+            if(arr[i]>max){
+               max =arr[i]; 
+            }
+        }
+        console.log(max);
+        document.write(max+"<br/>");
+    //   
+    let maxs=[5,17,2,30,9,25];
+    let arrs=maxs[0]
+    for(let i=0; i < maxs.length;i++){
+    if(maxs[i]>arrs){
+        arrs=maxs[i]
+    }
+}
+    document.write(arrs+"<br/>")
+    // 
+let ab=[4,9,2,11,7,0,90];
+let bc=ab[0];
+for(let i=0; i < ab.length; i++){
+    if(ab[i]>bc){
+        bc=ab[i]
+    }
+}
+document.write(bc+"<br/>")
+// /
+let big=[20,4,90,109,49,56,450];
+ let small=big[0];
+ for(let i=0;i<big.length;i++){
+    if(big[i]>small){
+        small=big[i]
+    }
+ }
+ document.write(small+"<br/>")
+//  
+let lil=[4,9,2,11,7];
+let lose=lil[0]
+    for(let i=0; i<lil.length; i++){
+        if(lil[i]>lose){
+            lose=lil[i]
+        }
+    }
+    document.write(lose+"<br/>")
+
+// 
+let pink=[40,20,10,4,0,60];
+let purple=pink[0];
+for(let i=0; i<pink.length; i++){
+    if(pink[i]>purple){
+        purple=pink[i]
+    }
+}
+document.write(purple+"<br/>")
+// max negative number
+let negativ=[-10,-50,-3,-99,-25,-1];
+let maxi=negativ[0];
+for(let i=0;i<negativ.length ;i++){
+    if(negativ[i]>maxi){
+        maxi=negativ[i]
+    }
+}
+document.write(maxi+"<br/>");
+// 
+let pipe=[-50,-90,-20,-10,-5,-2,-1];
+let ends=pipe[0];
+for(let i=0; i<pipe.length; i++){
+    if(pipe[i]>ends){
+        ends=pipe[i]
+    }
+}
+document.write(ends + "<br/>");
+// 
+let jockey=[10,89,90,744,78,43,24]
+let you=jockey[0]
+for(i=0;i<jockey.length; i++){
+    if(jockey[i]>you)
+    you=jockey[i]
+}
+document.write(you+"<br/>")
+// 
+let fish=[-20,-90,-70,-60,-45]
+let rise=fish[0];
+for(i=0;i<fish.length;i++){
+    if(fish[i]>rise){
+        rise=fish[i]
+    }
+}
+document.write(rise+"<br/>")
+// SECOND MAXIMUM NUMBER
+ let well=[12,47,7,23,45,45, 47,10];
+ let max1=-Infinity;
+ let max2=-Infinity;
+ for(let i=0; i<well.length; i++){
+    if(well[i]>max1){
+        max2=max1;
+        max1=well[i];
+    }
+    else if(well[i]>max2 && well[i]!=max1){
+        max2=well[i];
+    }
+ }
+ document.write(max2)
+//  
+// let yoyo=[5,12,9,21,18];
+// let bigs=-Infinity;
+// let secondbig=-Infinity;
+// // let third=-Infinity;
+// for(let i=0;i<yoyo.length;i++){
+//     if(yoyo[i]>bigs){
+//         secondbig=bigs;
+//         // third=secondbig
+//         // third=bigs
+//         bigs=yoyo[i]
+//     }
+//     else if(yoyo[i]>secondbig && yoyo[i]!=bigs &&){
+//     //  yoyo[i]!=secondbig){
+//         secondbig=yoyo[i]
+//         // third=yoyo[i]
+//     }
+// }
+//  document.write("<br/>"+secondbig)
+// console.log(secondbig)
+// console.log(third)
+// 
+let air=[10, "hii", 25, true, 9, 100, null];
+let maxss=-Infinity
+for(let i=0;i<air.length;i++){
+    if(typeof air[0]==="number" && !isNaN(air[i])){
+        if(air[i]>maxss){
+            maxss=air[i];
+        }
+
+    }
+}
+console.log(maxss)
+let sae=[4,5,99,2]
+let buo=Math.max(...sae)
+console.log(buo);
+</script>
+
+</body>
+</html>

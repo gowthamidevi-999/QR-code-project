@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .smile{
+            font-size: 100px;
+        }
+        h1{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 40px;
+    transform: translate(-50%, -50%);
+    transition: all 1s ease-in-out;
+    /* color: white; */
+}
+.move-top{
+    top:20px;
+    transform: translate(-50%, 0%);
+}
+    </style>
+</head>
+<body>
+    <h1 id="title">Random joke's Generator😄</h1>
+      <div class="container">
+      <button id="btnone">   Get Start</button>
+      </div>
+    <div class="joketext">
+        <p class="loading">Loading</p>
+    <button class="btntwo">Next jok
+   </div>
+   <script>
+    setTimeout(()=>{
+    document.getElementById("title").classList.add("move-top");
+},2000);
+   </script>
+</body>
+</html>

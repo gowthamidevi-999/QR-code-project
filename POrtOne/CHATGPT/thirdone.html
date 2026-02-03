@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗣️🗣️🗣️🗣️🗣️</title>
+    <style>
+        *{
+            margin: 0; padding:0; box-sizing:border-box; 
+        }
+        body{
+background-color: mediumpurple;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+
+        }
+        .container{
+           background-color: white;
+           padding:40px 30px;
+           text-align: center;
+           line-height: 1.5px;
+           margin-top: -20px;
+        border-radius: 0 45px 0 45px ;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        cursor:pointer;
+           
+        }
+        .container:hover{
+            box-shadow: 0 0 10px white;
+            border-radius:  45px 0 45px 0;
+        }
+        .container h1{
+            margin-bottom:20px;
+            box-shadow: 0 0 10px pink;
+            padding:15px ;
+            color:#9f1212e7;
+            border-radius:.9rem;
+        }
+        .container h1:hover{
+             box-shadow: 0 0 10px darkred;
+             color:cadetblue;
+        }
+        #search-box{
+          display:flex;
+          justify-content: center;
+          align-items: center;
+        }
+        input{
+            padding:10px 70px;
+            font-size:2rem;
+            color:brown;
+            border:none;
+          box-shadow: 0 0 10px grey;
+          border-radius: 20px 0px 0px 20px;
+          font-family:cursive;
+          margin-top:10px;
+        }
+
+         input:hover{
+             box-shadow: 0 0 10px purple;
+         }
+          button{
+            padding:0px 20px;
+            background-color: brown;
+            color:white;
+            font-size: 1rem;
+            border-radius:0px 20px 20px 0px;
+            border:none;
+            font-family:cursive;
+            cursor: pointer;
+            margin-top:-3px;
+  transition: 0.3s;
+          }
+              button:hover{
+                 box-shadow: 0 0 10px purple;
+                 background-color: aliceblue; color:cadetblue;
+                 font-weight: 900;
+
+              }
+              #result{
+                margin-top: 20px;
+                line-height: 1.6;
+              }
+              .lang{
+                background: #f4f2ff;
+                padding:10px;
+                border-radius:10px;
+                margin-top:10px;
+              }
+              .sound-btn{
+              background: #5a34d6;
+  /* color: #fff; */
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 2px;
+  transition: 0.3s;
+  /* text-align: center; */
+  padding:5px 5px;
+}
+#searchbtn{
+  font-size: 30px;
+  margin-top:5px;
+}
+
+.sound-btn:hover {
+  background: #de13a1;
+}
+
+
+              @media(max-width:1000px){
+                body{
+                    background-color: cadetblue;
+
+                }
+                 .container{
+          
+           padding:30px 40px;
+           font-size: .7rem;
+           
+        }
+  .container h1{
+          color:blue;
+          letter-spacing: 2px;
+              }
+              input{
+                font-size:1.1rem;
+              }
+              button{
+                background-color: blue;
+                font-size: 1.2rem;
+              }
+              @media(max-width:600px){
+                body{background-color: khaki;
+                    text-align: center;
+
+                }
+                .container{
+                    background-color: aqua;
+                    padding:30px 20px;
+                    font-size:10px;
+                    margin:10px 20px
+                }
+                 .container h1{
+                  font-size: 15px;
+                 }
+                input{
+                    padding:10px 15px;
+                    text-align: center;
+
+                }
+                button{
+                    padding:1px;
+                    background-color: cadetblue;
+                }
+              }
+
+            }    
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">🗣️ Multi-Language Dictionary</h1>
+        <div class="search-box">
+            <input type="text" placeholder="Enter a word" 
+            id="wordinput">
+            <button id="searchbtn"                                                              >Search</button>
+        </div>
+        <div id="result" class="result"></div>
+        <!-- <div class="sound-btn"></div> -->
+    </div>
+    <script>
+        const input=document.getElementById("wordinput");
+        const search=document.getElementById("searchbtn");
+        const result=document.getElementById("result");
+
+     search.addEventListener("click", getMeaning);
+        // 
+
+       async function getMeaning(){
+        const word=input.value.trim();
+        if(word===""){
+            result.innerHTML="<p style=font-size:25px>Please enter a word 😁</p>";
+            return;
+        }
+    const apiurl=`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+    result.innerHTML=`<p>Fetching data from 😎:<br><b>${apiurl}</b></p>`
+
+    try{
+const orange=await fetch(apiurl);
+ if(!orange.ok){
+result.innerHTML=`<p style=font-size:1.5rem>No result found for <b>${word}😢</b></p>`;
+return; 
+         }  
+         const data=await orange.json();
+         const meaning=data[0]?.meanings[0]?.definitions[0]?.definition ||"NO defination is found";
+        //    
+ const teluguurl=`https://api.mymemory.translated.net/get?q=${meaning}&langpair=en|te`;
+ const hindiurl=`https://api.mymemory.translated.net/get?q=${meaning}&langpair=en|hi`;
+        //
+const   teluguRes=await fetch(teluguurl);
+const hindiRes=await fetch(hindiurl);
+//
+const  telugudata=await teluguRes.json(); 
+const hindidata= await hindiRes.json();
+// 
+const telugumeaning=telugudata.responseData.translatedText;
+const hindimeaning=hindidata.responseData.translatedText;
+
+result.innerHTML=
+`<h2 style=font-size:1.3rem>${word}🌹</h2>
+<p style=font-size:1.1rem><b style=font-size:1.1rem>English: </b >${meaning}🎈</p>
+<p class="lang" style=font-size:1.1rem ><b style=font-size:1.1rem>Telugu :</b >${telugumeaning}🍅</p>
+<p class="lang" style=font-size:1.1rem><b style=font-size:1.1rem>Hindi :</b >${hindimeaning}👩🏻</p>
+<button class="sound-btn" onclick="speakWord('${word}')">🔊</button>
+<hr>
+<big style=font-size:.9rem>Fetched from: <br> ${apiurl} </big>
+`;
+ } 
+ catch(err){
+    result.innerHTML="<p style= font-size:1.9rem>⚠️ something went wrong. please check your internet or try again later</p>"
+ }
+    }
+    function speakWord(word){
+        const speech=new SpeechSynthesisUtterance(word);
+        speech.lang="en-Us";
+        window.speechSynthesis.speak(speech);
+    }
+    //  search.addEventListener("click", getMeaning);
+          </script>
+</body>
+</html>

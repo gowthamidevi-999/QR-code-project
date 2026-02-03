@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body,html{
+            width:100%;
+            height:100%;
+        } 
+        body{
+            background: linear-gradient(150deg,rgb(236, 236, 15),rgb(205, 59, 14));
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* transition: background-image 0.5s ease; */
+            transition: all 0.3s ease;
+            margin:0;
+            padding:0;
+            /* color:white; */
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .start{
+position:fixed;
+top:40%;left:50%;
+transform: translate(-50%,-50%);
+text-align: center;
+color:white;
+        }
+         #title{
+        font-size:3rem;
+        letter-spacing: 4px;
+        }
+    #startbtn{
+     padding:10px;
+     font-size: 1.3rem;
+     border-radius: 2rem;
+     font-weight: 900;
+     border:none;
+    }
+    #startbtn:hover{
+        box-shadow:0 0 10px white;
+
+    }
+    #previous{
+        background-color: white;
+        color:black;
+        border-radius:2rem;
+        margin-left: 10px;
+        padding:5px;
+        font-size: 1.2rem;
+        border:none;
+    position: absolute;bottom:20px;
+    left:40%;
+    display: none;
+        }
+         #next{
+            display: none;
+background-color: white;
+        color:black;
+        border-radius:2rem;
+        padding:5px;
+        font-size: 1.2rem;
+        border:none;
+    position: absolute;bottom:20px;right:45%;
+        } 
+#previous:hover,#next:hover{
+    box-shadow: 0 0 20px white;
+}
+        
+    </style>
+</head>
+<body>
+   <div class="start" id="start">
+    <h1 id="title">Change Backgrounds</h1>
+    <button id="startbtn">Start changes</button>
+   </div>
+   <button id="previous">Previous</button>
+   <button id="next">Next</button>
+   <script>
+    let start=document.getElementById("start");
+    let prev=document.getElementById("previous");
+    let next=document.getElementById("next")
+    let startbtn=document.getElementById("startbtn");
+     
+   // let colors=["lightblue","lightpink","lightgreen","grey","purple","violet","green"]
+    let images=[
+        "https://images.pexels.com/photos/1030623/pexels-photo-1030623.jpeg",
+        "https://images.pexels.com/photos/35439648/pexels-photo-35439648.jpeg",
+        "https://images.pexels.com/photos/158063/bellingrath-gardens-alabama-landscape-scenic-158063.jpeg",
+        "https://images.pexels.com/photos/250591/pexels-photo-250591.jpeg",
+        "https://images.pexels.com/photos/1128797/pexels-photo-1128797.jpeg",
+        "https://images.pexels.com/photos/919278/pexels-photo-919278.jpeg",
+        "https://images.pexels.com/photos/1420440/pexels-photo-1420440.jpeg",
+        "https://images.pexels.com/photos/2101187/pexels-photo-2101187.jpeg",
+        "https://images.pexels.com/photos/74512/pexels-photo-74512.jpeg",
+        "https://images.pexels.com/photos/46160/field-clouds-sky-earth-46160.jpeg",
+        "https://images.pexels.com/photos/126271/pexels-photo-126271.jpeg",
+        "https://images.pexels.com/photos/240526/pexels-photo-240526.jpeg"
+
+    ];
+   let index=0;
+
+    startbtn.addEventListener("click", go);
+    function go(){
+        start.style.display="none";
+        prev.style.display="block";
+        next.style.display="block"
+        document.body.style.backgroundImage=`url(${images[index]})`;
+    };
+    next.addEventListener("click",improve);
+    function improve(){
+        index++
+
+        if(index >= images.length){
+            index=0;
+        }
+        document.body.style.backgroundImage=`url(${images[index]})`;
+    }
+    prev.addEventListener("click",prevs);
+    function prevs(){
+    index--;
+    if(index <0){
+        index=images.length-1;
+   }
+  document.body.style.backgroundImage=`url(${images[index]})`;
+}
+  
+   </script>
+</body>
+</html>
